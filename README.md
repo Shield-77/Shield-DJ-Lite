@@ -1,5 +1,5 @@
 # Shield DJ 
-Free MP3 player homebrew for 3ds, featuring synchronized pitch and speed control, adjustable bass boost, shuffle, and more. The interface is in French. Use the bass boost responsibly and keep the volume at a safe level. The developer is not responsible for damage resulting from improper use.
+Free MP3 player homebrew for 3ds, featuring synchronized pitch and speed control, adjustable bass boost, shuffle, and more. Use the bass boost responsibly and keep the volume at a safe level. The developer is not responsible for damage resulting from improper use.
 
  AI assistance was used to help develop this project. However, this only applies to code (it will not kaboom do not worry).
 
