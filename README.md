@@ -100,6 +100,23 @@ So whether you're poor and phoneless, or stuck on your 3DS because the current g
 
 Well, if you can call it that.
 
+And guess what they found for me?
+
+A Samsung flip phone from 2013!
+
+And the best part?
+
+A microSD card reader and an MP3 player!
+
+Incredible!
+
+I absolutely love the music effects it offers. I admit, I actually prefer it to the Samsung Galaxy A16.
+
+It handles audio really well, does exactly what I need, and doesn't even have a Wi-Fi chip.
+
+<img width="1440" height="1080" alt="1000242855" src="https://github.com/user-attachments/assets/b6a11486-e1f3-4f96-aef5-ea67e379e48f" />
+
+
 Why am I using Codex?
 
 And what resources do I actually have?
