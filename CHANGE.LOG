@@ -1,111 +1,277 @@
 
-shield Player by Yanis — Version History
-• There have been some very positive updates, but I don't have time right now to create a new changelog.
+# Shield DJ Lite by Shield-77 — Version History
 
-v1.2.27
+Formerly known as Shield Player.
 
-• START now exits the application. SELECT is freed up for a future function.
+## v1.7.4
 
-v1.2.26
+- Added Long Reverb ON/OFF in Options > Effects, disabled by default.
+- Playback time now follows the actual output rate during pitch changes, retaining fractional milliseconds.
+- MP3/OGG decoders, Bass Boost, and controls preserved.
 
-• Removed the START shortcut that launched random folder playback.
-• Fixed the button prompts displayed on screen.
+## v1.7.3
 
-v1.2.25
+- Rock EQ now has a more distinct and stable curve.
+- Other filters, especially Outdoor, have been rebalanced to remain audible.
+- Reverb is slightly more present, with separate decay times for Concert, Cathedral, and Extra.
+- Reverb touch bar moved inward, making 0% and 100% easier to select.
+- MP3/OGG engine, Bass Boost, and controls preserved.
 
-• Red low-battery alert at 20% or less.
-• The alert disappears above 20% and when the charger is plugged in.
+## v1.7.2
 
-v1.2.24
+- Reverb maintains its level while decay lasts longer in Concert, Cathedral, Extra, and Custom modes.
+- In impulse testing, Extra's reverb tail increased from approximately 0.65 seconds to 1.30 seconds at the −60 dB threshold.
+- Peak protection, filters, controls, and MP3/OGG playback preserved.
 
-• The library hides folders that do not directly contain any MP3 or OGG files.
+## v1.7.1
 
-v1.2.23
+- Added the Classic EQ filter.
+- EQ profiles now have more distinct curves; None remains neutral.
+- Adjusted reverb to reduce clipped peaks measured during testing.
+- All four reverb presets and Custom mode preserved.
+- Enlarged the reverb touch area and separated it from the playback seek bar.
+- MP3/OGG decoding, Bass Boost, playback controls, and Title ID unchanged.
+- DSP processing was measured on PC with test signals. Sound quality and performance still required testing on console at the time of release.
 
-• Gradual restoration of system brightness when closing the player to prevent a flash.
-• The brightness stored by the console remains unchanged.
+## v1.7.0
 
-v1.2.22
+- SELECT now opens and closes Options without interrupting playback.
+- B returns to the previous page.
+- Added audio filters: None, Rock, Pop, Jazz, Clear, and Outdoor.
+- Only one EQ filter can be active at a time; Bass Boost remains independent.
+- Added Custom Reverb ON/OFF.
+- Custom Reverb ON allows free intensity adjustment from 0% to 100%.
+- Custom Reverb OFF provides four presets: Off, Concert, Cathedral, and Extra.
+- Reverb changes apply when the finger is released from the touch screen.
+- Separated reverb and playback seeking touch zones.
+- Updated the French/English guide.
+- Version number now appears below Shield-77 on the upper screen.
+- Bass OFF now disables its filter.
+- Removed the decoded-frame counter from the lower screen.
+- CIA Title ID preserved for normal installation over Shield DJ Lite.
 
-• Increased spacing between commands displayed during playback to improve readability.
+## v1.6.9
 
-v1.2.21
+- Restored the playback touch seek bar.
+- Touch and drag to preview the playback position, then release to seek.
+- The touch controls disabled in v1.6.8 were restored.
+- Pitch and L/R track-lock improvements from v1.6.8 preserved.
+- Tested on Old 3DS by Shield-77.
 
-• Fixed an OGG buffer calculation that could corrupt the end of audio blocks and cause glitches.
+## v1.6.8
 
-v1.2.20
+- More precise pitch display, including values such as 1.05× and 1.075×.
+- Pitch adjustment uses steps of 0.025× up to 2.00×.
+- Improved L/R track locking with the left Circle Pad.
+- Clarified Circle Pad directions in the guide.
+- Updated French/English guide.
+- Touch controls were disabled in this version and restored in v1.6.9.
+- Audio decoding and sound effects preserved.
 
-• Total capacity and free space of the SD card are measured only once at startup.
+## v1.6.7
 
-v1.2.19
+- Added French and English language selection.
+- Language preference is saved.
+- Added a bilingual startup guide after language selection.
+- Holding SELECT during startup allows the guide to be viewed again.
+- Guide explains the main controls and features still under development.
 
-• Display of free and total SD space at the bottom of the upper screen.
-• Fixed an issue related to the HOME transition triggered by a brief press on POWER, which could freeze the console.
+## v1.6.6
 
-v1.2.18
+- Battery information now appears on its own line below the title.
+- HH:MM clock preserved.
+- No audio or performance changes.
 
-• Pitch and speed range extended from 0.25× to 1.75×.
-• Reverted to four audio buffers to reduce reported glitches on OGG.
+## v1.6.5
 
-v1.2.17
+- Added an HH:MM clock in the upper-right corner of the top screen.
+- Clock refreshes only when the minute changes.
 
-• More robust OGG playback: recovery after certain isolated Vorbis packet errors.
-• Increased audio margin to reduce micro-stuttering on Old 3DS.
+## v1.6.4
 
-v1.2.16
+- Bug fixes.
 
-• Added OGG Vorbis file playback.
-• OGG files support pitch/speed, bass profiles, and closed-lid playback.
+## v1.6.3
 
-v1.2.15
+- Added a +16 dB bass profile between Boost (+9 dB) and Extreme (+22 dB).
+- The new profile can be selected using Y during playback.
+- The lowest bass level is now displayed as OFF.
+- Its DSP gain remained unchanged at +3 dB in this version.
 
-• Added EXTREME bass profile (+22 dB), selectable with Y during playback.
+## v1.6.2
 
-v1.2.14
+- Updated the lower-screen splash artwork.
+- Artist credit included in the artwork.
+- Original image preserved and adapted to 320 × 240 without distortion.
+- CIA internal version: 1110.
+- Title ID: 000400000A210100.
 
-• Reworked bass equalization with a wider low-shelf filter.
-• Increased differentiation between bass profiles.
+## v1.6.1
 
-v1.2.13
+- Bug fixes.
 
-• Display of battery temperature and addition of a thermal alert.
-• Alert threshold set to 42°C on Nintendo 2DS Old and 45°C by default on other models.
-• Clarified help text: "Plug in headphones before activating sleep mode."
+## v1.6.0
 
-v1.2.12
+- Major audio stability improvements and bug fixes.
+- Added functions intended to prevent audio degradation.
 
-• Simplified selection interface: button prompts that cluttered the list are now hidden.
+## v1.5.6
 
-v1.2.11
+- Concert reverb is now more audible, with a smoother echo decay.
+- Added short fades between tracks to avoid abrupt transitions.
+- Audio buffers are prepared before playback starts.
+- Reduced unnecessary DSP adjustments and screen refreshes during playback.
+- Enlarged the touch seek bar.
+- Dragging the seek bar previews the target time and percentage before seeking.
+- Fixed playback counter behavior after seeking.
+- Fixed track changes while playback is paused.
+- Improved OGG seeking accuracy.
+- Seeking in MP3 files without a Xing index may remain approximate.
+- Shuffle avoids immediately replaying the same track at the beginning of a new cycle.
+- Faster navigation through subfolders without unnecessary SD card rescanning.
+- Improved handling of MP3 headers and damaged audio files.
+- SD card information and battery temperature remain visible.
+- Added a four-page startup guide covering controls and the project.
 
-• Track list easier to navigate: six entries displayed at a time and increased spacing.
-• Track selection highlighted more clearly.
+## v1.5.4
 
-v1.2.10
+- Reorganized the startup guide into three pages for better readability.
+- Holding SELECT during startup allows the guide to be viewed again.
+- Slightly softened reverb.
+- Added HOME audio boost levels: OFF, 200%, 300%, and 500%.
+- Added a limiter to reduce saturation.
+- Improved audio resampling during pitch and speed adjustments.
 
-• Fixed interface refreshing when exiting the playback screen.
-• Long filenames shortened to prevent them from overflowing the screen.
+## v1.4.4
 
-v1.2.9
+- Officially renamed the application edition Shield DJ Lite.
+- CIA Title ID remains unchanged to preserve update compatibility.
+- Added elapsed time and total track duration in MM:SS/MM:SS format.
+- Reduced interface refresh overhead.
+- Added the Soft bass preset between Warm and Boost.
+- Increased reverb intensity and decay duration.
 
-• Adjustments to the track list display.
+## v1.3.13
 
-v1.2.8
+- Added four reverb modes: Off, Concert, Cathedral, and Extra.
+- Removed the barely audible Studio and Room profiles.
+- Improved file browsing and long filename display.
+- Improved handling of Japanese and special-character filenames.
+- Improved screen layout.
+- Added SD card capacity and free-space information.
+- Fixed brightness synchronization so the HOME Menu keeps the level selected in the app.
+- Removed the audio meter to preserve Old 3DS resources.
 
-• Thermal alert from 45°C on models other than the 2DS Old.
-• Temperature updated every 15 seconds.
+## v1.3.5
 
-v1.2.7
+- Added reverb.
+- Additional bug fixes.
 
-• Display of battery temperature at the bottom left of the lower screen.
-• Initial periodic temperature update, every five minutes.
+## v1.2.27
 
-Features Present Since v1.2.6
+- START now exits the application. SELECT is freed up for a future function.
 
-• MP3 playback from the SD card, with folder shuffle.
-• Continuous playback when the console is closed, with audio output through headphones.
-• Pitch adjustment synchronized with playback speed.
-• Brightness adjustment directly from the player.
-• Bass boost profiles.
-• Battery indicator in 5% increments.
+## v1.2.26
+
+- Removed the START shortcut that launched random folder playback.
+- Fixed the button prompts displayed on screen.
+
+## v1.2.25
+
+- Red low-battery alert at 20% or less.
+- The alert disappears above 20% and when the charger is plugged in.
+
+## v1.2.24
+
+- The library hides folders that do not directly contain any MP3 or OGG files.
+
+## v1.2.23
+
+- Gradual restoration of system brightness when closing the player to prevent a flash.
+- The brightness stored by the console remains unchanged.
+
+## v1.2.22
+
+- Increased spacing between commands displayed during playback to improve readability.
+
+## v1.2.21
+
+- Fixed an OGG buffer calculation that could corrupt the end of audio blocks and cause glitches.
+
+## v1.2.20
+
+- Total capacity and free space of the SD card are measured only once at startup.
+
+## v1.2.19
+
+- Display of free and total SD space at the bottom of the upper screen.
+- Fixed an issue related to the HOME transition triggered by a brief press on POWER, which could freeze the console.
+
+## v1.2.18
+
+- Pitch and speed range extended from 0.25× to 1.75×.
+- Reverted to four audio buffers to reduce reported glitches on OGG.
+
+## v1.2.17
+
+- More robust OGG playback: recovery after certain isolated Vorbis packet errors.
+- Increased audio margin to reduce micro-stuttering on Old 3DS.
+
+## v1.2.16
+
+- Added OGG Vorbis file playback.
+- OGG files support pitch/speed, bass profiles, and closed-lid playback.
+
+## v1.2.15
+
+- Added EXTREME bass profile (+22 dB), selectable with Y during playback.
+
+## v1.2.14
+
+- Reworked bass equalization with a wider low-shelf filter.
+- Increased differentiation between bass profiles.
+
+## v1.2.13
+
+- Display of battery temperature and addition of a thermal alert.
+- Alert threshold set to 42°C on Nintendo 2DS Old and 45°C by default on other models.
+- Clarified help text: "Plug in headphones before activating sleep mode."
+
+## v1.2.12
+
+- Simplified selection interface: button prompts that cluttered the list are now hidden.
+
+## v1.2.11
+
+- Track list easier to navigate: six entries displayed at a time and increased spacing.
+- Track selection highlighted more clearly.
+
+## v1.2.10
+
+- Fixed interface refreshing when exiting the playback screen.
+- Long filenames shortened to prevent them from overflowing the screen.
+
+## v1.2.9
+
+- Adjustments to the track list display.
+
+## v1.2.8
+
+- Thermal alert from 45°C on models other than the 2DS Old.
+- Temperature updated every 15 seconds.
+
+## v1.2.7
+
+- Display of battery temperature at the bottom left of the lower screen.
+- Initial periodic temperature update, every five minutes.
+
+## Features Present Since v1.2.6
+
+- MP3 playback from the SD card, with folder shuffle.
+- Continuous playback when the console is closed, with audio output through headphones.
+- Pitch adjustment synchronized with playback speed.
+- Brightness adjustment directly from the player.
+- Bass boost profiles.
+- Battery indicator in 5% increments.
+
 The displayed temperature is that of the battery. Thermal thresholds are warnings configured by the application; they do not measure CPU temperature.
