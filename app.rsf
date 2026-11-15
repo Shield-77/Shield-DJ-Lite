@@ -1,0 +1,40 @@
+BasicInfo:
+  Title: Shield DJ Lite by Shield-77
+  ProductCode: SHLD3DS01
+  Logo: Homebrew
+
+RomFs:
+  RootPath: romfs
+
+TitleInfo:
+  Category: Application
+  UniqueId: 0xA2101
+
+Option:
+  UseOnSD: true
+  FreeProductCode: true
+  EnableCrypt: false
+  EnableCompress: true
+
+AccessControlInfo:
+  CoreVersion: 2
+  DescVersion: 2
+  FileSystemAccess:
+    - DirectSdmc
+  ServiceAccessControl:
+    - APT:U
+    - cfg:s
+    - cfg:u
+    - dsp::DSP
+    - fs:USER
+    - gsp::Gpu
+    - gsp::Lcd
+    - hid:USER
+    - ptm:sysm
+    - mcu::HWC
+    - nwm::EXT
+
+SystemControlInfo:
+  SaveDataSize: 512KB
+  RemasterVersion: 1
+  StackSize: 0x40000
