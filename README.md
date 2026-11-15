@@ -1,5 +1,7 @@
 # Shield DJ Lite
 
+**CODEX WAS USED FOR THE CODE**
+
 Lecteur MP3 et OGG pour console 3DS, pensé pour les modèles Old 3DS. Il lit les fichiers de la carte SD avec lecture aléatoire, réglage de vitesse et de pitch liés, basses, filtres et réverbération facultative. L’interface est disponible en français et en anglais. Un guide apparaît au premier lancement ; maintenir **SELECT** au démarrage le rouvre.
 
 
