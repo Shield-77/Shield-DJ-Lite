@@ -2,6 +2,10 @@
 
 Lecteur MP3 et OGG pour console 3DS, pensé pour les modèles Old 3DS. Il lit les fichiers de la carte SD avec lecture aléatoire, réglage de vitesse et de pitch liés, basses, filtres et réverbération facultative. L’interface est disponible en français et en anglais. Un guide apparaît au premier lancement ; maintenir **SELECT** au démarrage le rouvre.
 
+
+**SHIELD DJ Lite possède les mêmes fonctionnalités audio que SHIELD DJ Standard, mais avec une interface plus simple et minimaliste, en plus simple lite est conçu pour être assez optimisé pour les consoles fatiguée ou faible.**
+
+
 La [release v1.7.4](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.4) distribue `ShieldDJLite.cia`, Title ID `000400000A210100`, version CIA interne **1123**. Cette version ajoute une réverbération longue facultative et corrige l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
 
 ## Source et compilation
