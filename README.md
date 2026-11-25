@@ -8,7 +8,7 @@ Lecteur MP3 et OGG pour console 3DS, pensé pour les modèles Old 3DS. Il lit le
 **SHIELD DJ Lite possède les mêmes fonctionnalités audio que SHIELD DJ Standard, mais avec une interface plus simple et minimaliste, en plus simple lite est conçu pour être assez optimisé pour les consoles fatiguée ou faible.**
 
 
-La [release v1.7.6](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.6) distribue [`ShieldDJLite.cia`](https://github.com/Shield-77/Shield-DJ-Lite/releases/download/v1.7.6/ShieldDJLite.cia). La release v1.7.4 distribuait le CIA avec le Title ID `000400000A210100`, version CIA interne **1123**. Cette version ajoutait une réverbération longue facultative et corrigeait l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
+La [release v1.7.6](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.6) distribue [`ShieldDJLite.cia`](https://github.com/Shield-77/Shield-DJ-Lite/releases/download/v1.7.6/ShieldDJLite.cia). La v1.7.6 rétablit la fonction normale de HOME, déplace Audio Boost dans les options SELECT et améliore le guide et l’organisation des fichiers MP3/OGG. Le CIA v1.7.4 (Title ID `000400000A210100`, version interne **1123**) ajoutait une réverbération longue facultative et corrigeait l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
 
 ## Why Shield DJ?
 
