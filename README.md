@@ -2,13 +2,27 @@
 
 **CODEX WAS USED TO GENERATE THE CODE**
 
+Codex is an AI coding assistant from OpenAI. I choose the features and test the apps on my 3DS.
+
 Lecteur MP3 et OGG pour console 3DS, pensé pour les modèles Old 3DS. Il lit les fichiers de la carte SD avec lecture aléatoire, réglage de vitesse et de pitch liés, basses, filtres et réverbération facultative. L’interface est disponible en français et en anglais. Un guide apparaît au premier lancement ; maintenir **SELECT** au démarrage le rouvre.
 
 
-**SHIELD DJ Lite possède les mêmes fonctionnalités audio que SHIELD DJ Standard, mais avec une interface plus simple et minimaliste, en plus simple lite est conçu pour être assez optimisé pour les consoles fatiguée ou faible.**
+**SHIELD DJ Lite possède les mêmes fonctionnalités audio que [SHIELD DJ Standard](https://github.com/Shield-77/Shield-DJ-standard-), avec une interface minimaliste qui réduit la charge graphique.**
 
 
 La [release v1.7.6](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.6) distribue [`ShieldDJLite.cia`](https://github.com/Shield-77/Shield-DJ-Lite/releases/download/v1.7.6/ShieldDJLite.cia). La v1.7.6 rétablit la fonction normale de HOME, déplace Audio Boost dans les options SELECT et améliore le guide et l’organisation des fichiers MP3/OGG. Le CIA v1.7.4 (Title ID `000400000A210100`, version interne **1123**) ajoutait une réverbération longue facultative et corrigeait l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
+
+## Télécharger / Download
+
+**[ShieldDJLite.cia (v1.7.6)](https://github.com/Shield-77/Shield-DJ-Lite/releases/download/v1.7.6/ShieldDJLite.cia)** · [Toutes les releases](https://github.com/Shield-77/Shield-DJ-Lite/releases)
+
+FBI : Remote Install > Scan QR Code.
+
+<img src="docs/cia-qr.svg" width="220" alt="QR FBI du CIA v1.7.6" />
+
+## Utilisation
+
+Placez vos MP3 ou OGG Vorbis à la racine de la carte SD ou dans vos propres dossiers. SELECT ouvre les options pendant la lecture ; maintenir SELECT au démarrage permet de revoir le guide. La lecture peut continuer avec le clapet fermé.
 
 ## Why Shield DJ?
 
@@ -63,7 +77,7 @@ Anyway, these days I only listen to music on my 3DS.
 So whether you're poor and phoneless, or stuck on your 3DS because the current global economy is terrible, you're welcome in the SHIELD ecosystem!
 
 Well, if you can call it that.
-
+
 
 ## Source et compilation
 
