@@ -10,6 +10,76 @@ Lecteur MP3 et OGG pour console 3DS, pensé pour les modèles Old 3DS. Il lit le
 
 La [release v1.7.4](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.4) distribue `ShieldDJLite.cia`, Title ID `000400000A210100`, version CIA interne **1123**. Cette version ajoute une réverbération longue facultative et corrige l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
 
+## Why Shield DJ?
+
+Well, it all started with a simple problem.
+
+Listening to music smoothly. Like, just listening to music without any problems.
+
+I always end up with the phones offered in Orange deals. You know, those offers where you take a specific subscription for three years and get something like 70% off a phone, or pay just €20 for it.
+
+The problem?
+
+Well, these phones can have an incredible CPU, an incredible GPU, but either terrible RAM or barely any RAM at all.
+
+And me? I've had several phones like this.
+
+Right now, I have a Samsung Galaxy A16.
+
+A powerful CPU capable of handling Splatoon emulation, a good GPU, 4 GB of RAM...
+
+And an incredibly slow environment.
+
+So slow that I don't even dare listen to music on it anymore.
+
+Because as soon as it starts lagging, the audio output completely glitches and goes full volume through the speakers.
+
+And since I listen to Splatoon music and spend a lot of time on public transport, you can probably imagine the problem.
+
+If the phone starts buffering or slowing down, well...
+
+This poor phone sometimes switches to speakerphone without asking and blasts the volume.
+
+Anyway.
+
+That's when the 3DS started to interest me.
+
+It's honestly a bit shameful for a phone from a big brand to get wrecked by an old Nintendo 3DS.
+
+A console from 2011.
+
+Despite its small 268 MHz CPU (I'm saying this off the top of my head, maybe I'm mistaken), it's still performing pretty well.
+
+128 MB of RAM, no crashes, good music quality, and I can even adjust the pitch based on the speed.
+
+Decent, right?
+
+Remember, it's a tiny CPU.
+
+But it's cool.
+
+Anyway, these days I only listen to music on my 3DS.
+
+So whether you're poor and phoneless, or stuck on your 3DS because the current global economy is terrible, you're welcome in the SHIELD ecosystem!
+
+Well, if you can call it that.
+
+And guess what they found for me?
+
+A Samsung flip phone from 2013!
+
+And the best part?
+
+A microSD card reader and an MP3 player!
+
+Incredible!
+
+I absolutely love the music effects it offers. I admit, I actually prefer it to the Samsung Galaxy A16.
+
+It handles audio really well, does exactly what I need, and doesn't even have a Wi-Fi chip.
+
+<img width="1440" height="1080" alt="1000242855" src="https://github.com/user-attachments/assets/b6a11486-e1f3-4f96-aef5-ea67e379e48f" />
+
 ## Source et compilation
 
 Le [code C de v1.7.4](source/) et les [en-têtes](include/) correspondent à la version du CIA publié. La copie publique utilise un écran inférieur SHIELD de remplacement et une bannière silencieuse : **le CIA officiel conserve son illustration créditée et son effet sonore d’origine**. Le fichier audio `S_Inkopolis_News.mp3`, inutilisé pour la compilation, reste uniquement dans la copie privée. Aucune de ces ressources privées n’est nécessaire pour compiler le source public.
