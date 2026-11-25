@@ -8,7 +8,7 @@ Lecteur MP3 et OGG pour console 3DS, pensé pour les modèles Old 3DS. Il lit le
 **SHIELD DJ Lite possède les mêmes fonctionnalités audio que SHIELD DJ Standard, mais avec une interface plus simple et minimaliste, en plus simple lite est conçu pour être assez optimisé pour les consoles fatiguée ou faible.**
 
 
-La [release v1.7.4](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.4) distribue `ShieldDJLite.cia`, Title ID `000400000A210100`, version CIA interne **1123**. Cette version ajoute une réverbération longue facultative et corrige l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
+La [release v1.7.6](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.6) distribue [`ShieldDJLite.cia`](https://github.com/Shield-77/Shield-DJ-Lite/releases/download/v1.7.6/ShieldDJLite.cia). La release v1.7.4 distribuait le CIA avec le Title ID `000400000A210100`, version CIA interne **1123**. Cette version ajoutait une réverbération longue facultative et corrigeait l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
 
 ## Why Shield DJ?
 
@@ -67,7 +67,7 @@ Well, if you can call it that.
 
 ## Source et compilation
 
-Le [code C de v1.7.4](source/) et les [en-têtes](include/) correspondent à la version du CIA publié. La copie publique utilise un écran inférieur SHIELD de remplacement et une bannière silencieuse : **le CIA officiel conserve son illustration créditée et son effet sonore d’origine**. Le fichier audio `S_Inkopolis_News.mp3`, inutilisé pour la compilation, reste uniquement dans la copie privée. Aucune de ces ressources privées n’est nécessaire pour compiler le source public.
+Le [code C de v1.7.4](source/) et les [en-têtes](include/) correspondent à la version v1.7.4 du CIA publié. La copie publique utilise un écran inférieur SHIELD de remplacement et une bannière silencieuse : **le CIA officiel conserve son illustration créditée et son effet sonore d’origine**. Le fichier audio `S_Inkopolis_News.mp3`, inutilisé pour la compilation, reste uniquement dans la copie privée. Aucune de ces ressources privées n’est nécessaire pour compiler le source public.
 
 Installer devkitPro/devkitARM, libctru, Tremor et libogg pour 3DS. Obtenir séparément `makerom` et `bannertool`, puis lancer :
 
