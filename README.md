@@ -12,6 +12,8 @@ Lecteur MP3 et OGG pour console 3DS, pensé pour les modèles Old 3DS. Il lit le
 
 La [release v1.7.6](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.6) distribue [`ShieldDJLite.cia`](https://github.com/Shield-77/Shield-DJ-Lite/releases/download/v1.7.6/ShieldDJLite.cia). La v1.7.6 rétablit la fonction normale de HOME, déplace Audio Boost dans les options SELECT et améliore le guide et l’organisation des fichiers MP3/OGG. Le CIA v1.7.4 (Title ID `000400000A210100`, version interne **1123**) ajoutait une réverbération longue facultative et corrigeait l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
 
+**État du code public :** le Makefile indique v1.7.4, tandis que le CIA proposé est v1.7.6. Les sources exactes de la dernière release restent à synchroniser. La copie publique comporte aussi les différences de ressources détaillées plus bas.
+
 ## Télécharger / Download
 
 **[ShieldDJLite.cia (v1.7.6)](https://github.com/Shield-77/Shield-DJ-Lite/releases/download/v1.7.6/ShieldDJLite.cia)** · [Toutes les releases](https://github.com/Shield-77/Shield-DJ-Lite/releases)
