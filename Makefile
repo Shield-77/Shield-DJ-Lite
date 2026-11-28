@@ -12,8 +12,8 @@ DATA        :=
 GRAPHICS    :=
 ROMFS       := romfs
 
-APP_VERSION     := v1.7.4
-APP_CIA_VERSION := 1123
+APP_VERSION     := v1.7.6
+APP_CIA_VERSION := 1125
 APP_TITLE       := Shield DJ Lite by Shield-77
 APP_DESCRIPTION := Lecteur audio MP3 et OGG avec pitch et vitesse synchronises
 APP_AUTHOR      := Shield-77

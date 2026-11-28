@@ -79,7 +79,7 @@ static unsigned options_page, options_selection;
 static int brightness_level = 3;
 static u8 backlight_config[2] = {0, 3};
 static bool cfgu_service_ready, backlight_config_valid;
-static bool lcd_ready, brightness_changed;
+static bool brightness_changed;
 static bool force_language_selection;
 static AppWifiGuard wifi_guard;
 
@@ -177,11 +177,20 @@ static void draw_guide_page(unsigned page) {
     printf("\n   " CONSOLE_CYAN "SHIELD DJ LITE" CONSOLE_RESET "                         %u/4\n", page + 1);
     printf("   -------------------------------------------\n\n");
     if (page == 0) {
-        printf("   " CONSOLE_YELLOW "TA MUSIQUE" CONSOLE_RESET "\n\n");
-        printf("   Mets tes MP3 ou OGG/Vorbis dans un dossier\n");
-        printf("   de la carte SD.\n");
-        printf("   MP3 et OGG/Vorbis seulement.\n");
-        printf("   Lite est legere ; Standard est plus soignee.\n\n");
+        printf("   " CONSOLE_YELLOW "%s" CONSOLE_RESET "\n\n",
+               shield_ui_language.french ? "TA MUSIQUE" : "YOUR MUSIC");
+        printf(shield_ui_language.french ?
+               "   MP3 / OGG : racine SD ou dossiers.\n" :
+               "   MP3 / OGG: SD root or folders.\n");
+        printf(shield_ui_language.french ?
+               "   Un dossier = une bibliotheque.\n" :
+               "   One folder = one music library.\n");
+        printf(shield_ui_language.french ?
+               "   MP3 et OGG/Vorbis seulement.\n" :
+               "   MP3 and OGG/Vorbis only.\n");
+        printf(shield_ui_language.french ?
+               "   Lite est legere ; Standard est soignee.\n\n" :
+               "   Lite is lighter; Standard is polished.\n\n");
         guide_control("HAUT / BAS", "Choisir un fichier");
         printf("\n");
         guide_control("A", "Ouvrir ou lire");
@@ -190,7 +199,8 @@ static void draw_guide_page(unsigned page) {
         printf("\n");
         guide_control("Y", "Lire le dossier en aleatoire");
     } else if (page == 1) {
-        printf("   " CONSOLE_YELLOW "PENDANT LA LECTURE" CONSOLE_RESET "\n\n\n");
+        printf("   " CONSOLE_YELLOW "%s" CONSOLE_RESET "\n\n\n",
+               shield_ui_language.french ? "PENDANT LA LECTURE" : "DURING PLAYBACK");
         guide_control("A", "Pause / reprendre");
         printf("\n");
         guide_control("B", "Arreter");
@@ -204,39 +214,49 @@ static void draw_guide_page(unsigned page) {
         printf(shield_ui_translate("   Si besoin, fais un 2e tour; geste en dev.\n"));
         printf(shield_ui_translate("   Tour gauche : debloque; recentre le pad.\n"));
     } else if (page == 2) {
-        printf("   " CONSOLE_YELLOW "REGLAGES ET AIDE" CONSOLE_RESET "\n\n\n");
+        printf("   " CONSOLE_YELLOW "%s" CONSOLE_RESET "\n\n\n",
+               shield_ui_language.french ? "REGLAGES ET AIDE" : "SETTINGS AND HELP");
         guide_control("X", "Repeter le morceau");
         printf("\n");
         guide_control("Y", "Changer les basses");
         printf("\n");
         guide_control("SELECT", "Ouvrir / fermer les options");
         printf("\n");
-        guide_control("HOME", "Boost OFF / 2x / 3x / 5x");
+        printf(shield_ui_language.french ?
+               "   HOME : menu de la console\n" :
+               "   HOME: system menu\n");
         printf("\n");
         guide_control("START", "Quitter l'application");
         printf(shield_ui_language.french ?
                "\n   Filtres : Aucun, Rock, Pop, Jazz,\n"
                "   Clair, Exterieur, Classique.\n"
                "   Effets : reverb libre ou 4 profils.\n"
-               "   Reverb prolongee : Options > Effets.\n"
+               "   Boost audio : Options > Boost.\n"
                "   Barre : profils 1-4 ou intensite 0-100%%.\n"
                "   SELECT au boot : revoir ce guide.\n" :
                "\n   Filters: None, Rock, Pop, Jazz,\n"
                "   Clear, Outdoor, Classic.\n"
                "   Effects: free reverb or 4 presets.\n"
-               "   Long reverb: Options > Effects.\n"
+               "   Audio boost: Options > Boost.\n"
                "   Bar: presets 1-4 or intensity 0-100%%.\n"
                "   Hold SELECT at boot to replay this guide.\n");
     } else {
-        printf("   " CONSOLE_YELLOW "UN PROJET BENEVOLE" CONSOLE_RESET "\n\n\n");
-        printf("   Je developpe Shield DJ Lite\n");
-        printf("   gratuitement, sur mon temps libre,\n");
-        printf("   avec des moyens limites.\n\n");
-        printf("   Je fais de mon mieux pour rendre\n");
-        printf("   l'application stable et agreable.\n\n");
-        printf("   Des bugs restent possibles :\n");
-        printf("   je m'en excuse et continuerai\n");
-        printf("   a les corriger. Merci !\n");
+        printf("   " CONSOLE_YELLOW "%s" CONSOLE_RESET "\n\n\n",
+               shield_ui_language.french ? "UN PROJET BENEVOLE" : "A VOLUNTEER PROJECT");
+        printf(shield_ui_language.french ?
+               "   Je developpe Shield DJ Lite\n"
+               "   gratuitement, sur mon temps libre,\n"
+               "   avec des moyens limites.\n\n"
+               "   Je fais de mon mieux pour rendre\n"
+               "   l'application stable et agreable.\n\n"
+               "   Des bugs restent possibles :\n"
+               "   je continuerai a les corriger. Merci !\n" :
+               "   I develop Shield DJ Lite for free,\n"
+               "   in my spare time, with limited means.\n\n"
+               "   I do my best to make it stable\n"
+               "   and enjoyable.\n\n"
+               "   Bugs may remain. I will keep\n"
+               "   fixing them. Thank you!\n");
     }
     top_console.cursorX = 3;
     top_console.cursorY = top_console.windowHeight - 3;
@@ -244,11 +264,16 @@ static void draw_guide_page(unsigned page) {
     top_console.cursorX = 3;
     top_console.cursorY = top_console.windowHeight - 2;
     if (page == 0)
-        printf(CONSOLE_GREEN "A  PAGE SUIVANTE" CONSOLE_RESET);
+        printf(CONSOLE_GREEN "%s" CONSOLE_RESET,
+               shield_ui_language.french ? "A  PAGE SUIVANTE" : "A  NEXT PAGE");
     else if (page == 3)
-        printf("B  RETOUR       " CONSOLE_GREEN "A  J'AI COMPRIS" CONSOLE_RESET);
+        printf(shield_ui_language.french ?
+               "B  RETOUR       " CONSOLE_GREEN "A  J'AI COMPRIS" CONSOLE_RESET :
+               "B  BACK         " CONSOLE_GREEN "A  GOT IT" CONSOLE_RESET);
     else
-        printf("B  RETOUR       " CONSOLE_GREEN "A  PAGE SUIVANTE" CONSOLE_RESET);
+        printf(shield_ui_language.french ?
+               "B  RETOUR       " CONSOLE_GREEN "A  PAGE SUIVANTE" CONSOLE_RESET :
+               "B  BACK         " CONSOLE_GREEN "A  NEXT PAGE" CONSOLE_RESET);
     gfxFlushBuffers();
     gfxSwapBuffers();
     gspWaitForVBlank();
@@ -412,7 +437,6 @@ static float speed = 1.0f;
 static int pitch_milli = 1000;
 static unsigned audio_boost_mode;
 static int32_t boost_gain_q15 = 32768;
-static u64 last_home_toggle_ms;
 static int base_rate = 44100;
 static int applied_output_rate, target_output_rate;
 
@@ -1412,13 +1436,37 @@ static void draw_options(void) {
     bottom_console.cursorY = 1;
     printf(CONSOLE_CYAN "OPTIONS" CONSOLE_RESET "\n");
     printf("========================================\n");
-    if (options_page == 0) {
+    if (!playing && options_page == 4) {
+        bottom_console.cursorX = 2; bottom_console.cursorY = 6;
+        printf("Shield-77\n\n");
+        printf(shield_ui_language.french ?
+               "  Projet gratuit, sur mon temps libre.\n\n"
+               "  Code ecrit avec l'aide de Codex.\n" :
+               "  Free project, made in spare time.\n\n"
+               "  Code written with Codex assistance.\n");
+        bottom_console.cursorX = 2; bottom_console.cursorY = 26;
+        printf(shield_ui_language.french ? "B : retour" : "B: back");
+    } else if (!playing) {
+        const char *names_fr[3] = {"Langue", "Guide", "Credits"};
+        const char *names_en[3] = {"Language", "Guide", "Credits"};
+        for (unsigned i = 0; i < 3; ++i) {
+            bottom_console.cursorX = 2; bottom_console.cursorY = 7 + i * 4;
+            printf("%s %s", options_selection == i ? ">" : " ",
+                   shield_ui_language.french ? names_fr[i] : names_en[i]);
+        }
+        bottom_console.cursorX = 1; bottom_console.cursorY = 26;
+        printf(shield_ui_language.french ? "A ouvrir B/SELECT fermer" :
+                                           "A open B/SELECT close");
+    } else if (options_page == 0) {
         bottom_console.cursorX = 2; bottom_console.cursorY = 7;
         printf("%s %s", options_selection == 0 ? ">" : " ",
                shield_ui_language.french ? "Filtres" : "Filters");
         bottom_console.cursorX = 2; bottom_console.cursorY = 11;
         printf("%s %s", options_selection == 1 ? ">" : " ",
                shield_ui_language.french ? "Effets" : "Effects");
+        bottom_console.cursorX = 2; bottom_console.cursorY = 15;
+        printf("%s %s", options_selection == 2 ? ">" : " ",
+               shield_ui_language.french ? "Boost audio" : "Audio boost");
         bottom_console.cursorX = 1; bottom_console.cursorY = 25;
         printf(shield_ui_language.french ? "A ouvrir  B/SELECT fermer" :
                                            "A open  B/SELECT close");
@@ -1436,7 +1484,7 @@ static void draw_options(void) {
         bottom_console.cursorX = 1; bottom_console.cursorY = 27;
         printf(shield_ui_language.french ? "A choisir  B retour  SELECT fermer" :
                                            "A choose  B back  SELECT close");
-    } else {
+    } else if (options_page == 2) {
         bottom_console.cursorX = 2; bottom_console.cursorY = 5;
         printf(shield_ui_language.french ? "Effets" : "Effects");
         bottom_console.cursorX = 2; bottom_console.cursorY = 9;
@@ -1458,18 +1506,41 @@ static void draw_options(void) {
         bottom_console.cursorX = 1; bottom_console.cursorY = 27;
         printf(shield_ui_language.french ? "A basculer  B retour  SELECT fermer" :
                                            "A toggle  B back  SELECT close");
+    } else if (options_page == 3) {
+        bottom_console.cursorX = 2; bottom_console.cursorY = 4;
+        printf(shield_ui_language.french ? "Boost audio" : "Audio boost");
+        const char *labels[4] = {"OFF", "2x", "3x", "5x"};
+        for (unsigned i = 0; i < 4; ++i) {
+            bottom_console.cursorX = 2; bottom_console.cursorY = 7 + i * 4;
+            printf("%s %-8s %s", options_selection == i ? ">" : " ",
+                   labels[i], audio_boost_mode == i ? "[x]" : "[ ]");
+        }
+        bottom_console.cursorX = 1; bottom_console.cursorY = 26;
+        printf(shield_ui_language.french ? "A choisir B retour SELECT fermer" :
+                                           "A choose B back SELECT close");
     }
 }
 
 static void options_activate(void) {
-    if (options_page == 0) {
-        options_page = options_selection == 0 ? 1 : 2;
+    if (!playing) {
+        if (options_selection == 0) {
+            options_open = false;
+            choose_ui_language(true);
+            show_first_launch_guide(true);
+        } else if (options_selection == 1) {
+            options_open = false;
+            show_first_launch_guide(true);
+        } else options_page = 4;
+    } else if (options_page == 0) {
+        options_page = options_selection + 1;
         options_selection = 0;
     } else if (options_page == 1) {
         filter_profile = options_selection;
-    } else {
+    } else if (options_page == 2) {
         if (options_selection == 0) reverb_custom_enabled = !reverb_custom_enabled;
         else reverb_long_enabled = !reverb_long_enabled;
+    } else if (options_page == 3) {
+        audio_boost_mode = options_selection;
     }
     ui_dirty = true;
 }
@@ -1479,7 +1550,7 @@ static void draw(void) {
     top_console.cursorY = 1;
     consoleSelect(&top_console);
     consoleClear();
-    printf(CONSOLE_CYAN "SHIELD DJ LITE BY SHIELD-77 1.7.4" CONSOLE_RESET);
+    printf(CONSOLE_CYAN "SHIELD DJ LITE BY SHIELD-77 1.7.6" CONSOLE_RESET);
     top_console.cursorX = top_console.windowWidth > 5
         ? top_console.windowWidth - 5 : 0;
     top_console.cursorY = 0;
@@ -1546,7 +1617,7 @@ static void draw(void) {
     printf("Shuffle : %s\n", shield_ui_translate(shuffle ? "active" : "desactive"));
     printf("Touches L/R : %s\n", shield_ui_translate(track_keys_locked ? "BLOQUEES" : "ACTIVES"));
     printf("Repeter piste : %s (X)\n", shield_ui_translate(repeat_current ? "OUI" : "NON"));
-    printf("Boost son : %s (HOME)\n", audio_boost_mode == 3 ? "500%" :
+    printf("Boost son : %s (SELECT)\n", audio_boost_mode == 3 ? "500%" :
            audio_boost_mode == 2 ? "300%" :
            audio_boost_mode == 1 ? "200%" : "OFF");
     top_console.cursorX = 1;
@@ -1596,11 +1667,11 @@ static void draw(void) {
                "A Pause   B Stop   L/R Piste\n\n"
                "X Repeter   Y Basses\n\n"
                "G/D Pitch    H/B Luminosite\n\n"
-               "SELECT Options  HOME Boost\n\n" :
+               "SELECT Options  HOME Menu\n\n" :
                "A Pause   B Stop   L/R Track\n\n"
                "X Repeat  Y Bass\n\n"
                "L/R Pitch  U/D Brightness\n\n"
-               "SELECT Options  HOME Boost\n\n");
+               "SELECT Options  HOME Menu\n\n");
         printf(shield_ui_language.french ? "Trames perdues : %lu\n" :
                                            "Dropped frames: %lu\n",
                (unsigned long)ndspGetDroppedFrames());
@@ -1631,12 +1702,15 @@ static void draw(void) {
 }
 
 static void change_brightness(int delta) {
-    if (!lcd_ready) return;
     int next = brightness_level + delta;
     if (next < 1) next = 1;
     if (next > 5) next = 5;
     if (next == brightness_level) return;
-    if (R_SUCCEEDED(GSPLCD_SetBrightness(GSPLCD_SCREEN_BOTH, (u32)next))) {
+    // Release gsp::Lcd promptly before the HOME suspend transition.
+    if (R_FAILED(gspLcdInit())) return;
+    bool changed = R_SUCCEEDED(GSPLCD_SetBrightness(GSPLCD_SCREEN_BOTH, (u32)next));
+    gspLcdExit();
+    if (changed) {
         brightness_level = next;
         brightness_changed = true;
         ui_dirty = true;
@@ -1724,7 +1798,7 @@ int main(void) {
     gfxInitDefault();
     hidScanInput();
     force_language_selection = (hidKeysHeld() & KEY_X) != 0;
-    aptSetHomeAllowed(false);
+    aptSetHomeAllowed(true);
     gfxSetScreenFormat(GFX_TOP, GSP_BGR8_OES);
     gfxSetScreenFormat(GFX_BOTTOM, GSP_BGR8_OES);
     show_boot_splash();
@@ -1761,7 +1835,6 @@ int main(void) {
     bool language_prompt_was_requested = force_language_selection;
     choose_ui_language(force_language_selection);
     if (fs_service_ready) show_first_launch_guide(language_prompt_was_requested);
-    lcd_ready = R_SUCCEEDED(gspLcdInit());
 
     Result audio_result = ndspInit();
     audio_ready = R_SUCCEEDED(audio_result);
@@ -1803,9 +1876,9 @@ int main(void) {
     const u32 joystick_keys = KEY_CPAD_UP | KEY_CPAD_DOWN | KEY_CPAD_LEFT | KEY_CPAD_RIGHT |
                               KEY_CSTICK_UP | KEY_CSTICK_DOWN | KEY_CSTICK_LEFT | KEY_CSTICK_RIGHT;
     for (;;) {
-        // Sleep remains enabled for lid-close playback policy. HOME stays
-        // blocked; POWER is left entirely to the system.
+        // Preserve lid-close behavior and honor HOME menu requests.
         aptHandleSleep();
+        aptHandleJumpToHome();
         if (aptShouldClose()) break;
         u64 now = osGetTime();
         update_clock(now);
@@ -1835,15 +1908,6 @@ int main(void) {
         u32 down = hidKeysDown() & ~joystick_keys;
         u32 held = hidKeysHeld() & ~joystick_keys;
         u32 released = hidKeysUp() & ~joystick_keys;
-        if (aptCheckHomePressRejected() && now - last_home_toggle_ms >= 350) {
-            audio_boost_mode = (audio_boost_mode + 1) % 4;
-            last_home_toggle_ms = now;
-            playback_status = audio_boost_mode == 3 ? "Boost audio 500%" :
-                              audio_boost_mode == 2 ? "Boost audio 300%" :
-                              audio_boost_mode == 1 ? "Boost audio 200%" :
-                                                      "Boost audio desactive";
-            ui_dirty = true;
-        }
         if (down) ui_dirty = true;
         bool menu_handled = false;
         if (down & KEY_SELECT) {
@@ -1855,15 +1919,20 @@ int main(void) {
             menu_handled = true;
         } else if (options_open) {
             menu_handled = true;
+            if (!playing && options_page != 4 && options_page != 0)
+                options_page = options_selection = 0;
             if (down & KEY_B) {
                 if (options_page == 0) options_open = false;
                 else { options_page = 0; options_selection = 0; }
             } else if (down & KEY_DUP) {
                 if (options_selection) options_selection--;
             } else if (down & KEY_DDOWN) {
-                unsigned last = options_page == 0 ? 1 : options_page == 1 ? 6 : 1;
+                unsigned last = options_page == 0 ? 2 :
+                                options_page == 1 ? 6 :
+                                options_page == 2 ? 1 :
+                                options_page == 3 ? 3 : 0;
                 if (options_selection < last) options_selection++;
-            } else if (down & KEY_A) options_activate();
+            } else if ((down & KEY_A) && options_page != 4) options_activate();
             else if (down & KEY_TOUCH) {
                 touchPosition touch;
                 hidTouchRead(&touch);
@@ -1871,16 +1940,25 @@ int main(void) {
                 if (options_page == 0) {
                     if (row >= 7 && row <= 9) { options_selection = 0; options_activate(); }
                     else if (row >= 11 && row <= 13) { options_selection = 1; options_activate(); }
+                    else if (row >= 15 && row <= 17) { options_selection = 2; options_activate(); }
                 } else if (options_page == 1) {
                     if (row >= 6 && row <= 25) {
                         options_selection = (row - 6) / 3;
                         if (options_selection > 6) options_selection = 6;
                         options_activate();
                     }
-                } else if (row >= 9 && row <= 11) {
-                    options_selection = 0; options_activate();
-                } else if (row >= 13 && row <= 15) {
-                    options_selection = 1; options_activate();
+                } else if (options_page == 2) {
+                    if (row >= 9 && row <= 11) {
+                        options_selection = 0; options_activate();
+                    } else if (row >= 13 && row <= 15) {
+                        options_selection = 1; options_activate();
+                    }
+                } else if (options_page == 3 && row >= 7 && row <= 21) {
+                    options_selection = (row - 7) / 4;
+                    if (options_selection > 3) options_selection = 3;
+                    options_activate();
+                } else if (options_page == 4 && row >= 25) {
+                    options_page = options_selection = 0;
                 }
             }
         }
@@ -2058,9 +2136,6 @@ int main(void) {
     if (ptmu_service_ready) ptmuExit();
     if (battery_service_ready) mcuHwcExit();
     if (cfgu_service_ready) cfguExit();
-    if (lcd_ready) {
-        gspLcdExit();
-    }
     for (int i = 0; i < AUDIO_BLOCK_COUNT; i++) {
         if (blocks[i].pcm) linearFree(blocks[i].pcm);
     }

@@ -12,7 +12,7 @@ Lecteur MP3 et OGG pour console 3DS, pensé pour les modèles Old 3DS. Il lit le
 
 La [release v1.7.6](https://github.com/Shield-77/Shield-DJ-Lite/releases/tag/v1.7.6) distribue [`ShieldDJLite.cia`](https://github.com/Shield-77/Shield-DJ-Lite/releases/download/v1.7.6/ShieldDJLite.cia). La v1.7.6 rétablit la fonction normale de HOME, déplace Audio Boost dans les options SELECT et améliore le guide et l’organisation des fichiers MP3/OGG. Le CIA v1.7.4 (Title ID `000400000A210100`, version interne **1123**) ajoutait une réverbération longue facultative et corrigeait l’affichage du temps lorsque le pitch change. Les anciennes notes sont dans [CHANGELOG.md](CHANGELOG.md).
 
-**État du code public :** le Makefile indique v1.7.4, tandis que le CIA proposé est v1.7.6. Les sources exactes de la dernière release restent à synchroniser. La copie publique comporte aussi les différences de ressources détaillées plus bas.
+**État du code public :** le code C correspond au dossier local de v1.7.6, dont le CIA est identique octet pour octet à celui de la release publique (SHA-256). Le Makefile indique la version interne **1125**. Cette comparaison ne remplace pas une reconstruction indépendante ; les différences de ressources sont détaillées plus bas.
 
 ## Télécharger / Download
 
@@ -60,7 +60,7 @@ Anyway.
 
 That's when the 3DS started to interest me.
 
-It's honestly a bit shameful for a phone from a big brand to get wrecked by an old Nintendo 3DS.
+It's honestly a bit shameful for a phone from a big brand to get wrecked by an old 3DS.
 
 A console from 2011.
 
@@ -83,7 +83,7 @@ Well, if you can call it that.
 
 ## Source et compilation
 
-Le [code C de v1.7.4](source/) et les [en-têtes](include/) correspondent à la version v1.7.4 du CIA publié. La copie publique utilise un écran inférieur SHIELD de remplacement et une bannière silencieuse : **le CIA officiel conserve son illustration créditée et son effet sonore d’origine**. Le fichier audio `S_Inkopolis_News.mp3`, inutilisé pour la compilation, reste uniquement dans la copie privée. Aucune de ces ressources privées n’est nécessaire pour compiler le source public.
+Le [code C de v1.7.6](source/) et les [en-têtes](include/) accompagnent la release v1.7.6. La copie publique utilise un écran inférieur SHIELD de remplacement et une bannière silencieuse : **le CIA officiel conserve son illustration créditée et son effet sonore d’origine**. Le fichier audio `S_Inkopolis_News.mp3`, inutilisé pour la compilation, reste uniquement dans la copie privée. Aucune de ces ressources privées n’est nécessaire pour compiler le source public.
 
 Installer devkitPro/devkitARM, libctru, Tremor et libogg pour 3DS. Obtenir séparément `makerom` et `bannertool`, puis lancer :
 
@@ -91,7 +91,7 @@ Installer devkitPro/devkitARM, libctru, Tremor et libogg pour 3DS. Obtenir sépa
 make cia MAKEROM=/chemin/makerom BANNERTOOL=/chemin/bannertool
 ```
 
-Le résultat est `build/ShieldDJLite.cia`. Son visuel inférieur et son son de bannière diffèrent du CIA officiel. Le code, la version interne et le Title ID restent ceux de v1.7.4. Les binaires des outils de construction ne sont pas redistribués ici.
+Le résultat est `build/ShieldDJLite.cia`. Son visuel inférieur et son son de bannière diffèrent du CIA officiel. Le code, la version interne et le Title ID restent ceux de v1.7.6. Les binaires des outils de construction ne sont pas redistribués ici.
 
 ## Licence et crédits
 
